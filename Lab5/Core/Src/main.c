@@ -114,7 +114,7 @@ int main(void)
   HAL_ADC_Start(&hadc1);
   HAL_TIM_Base_Start_IT(&htim2);
   HAL_UART_Receive_IT(&huart2, &buffer_byte, 1);
-  setTimer2(50);
+  setTimer2(500);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -122,19 +122,11 @@ int main(void)
   HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, 1);
   while (1)
   {
-//	  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-//	  ADC_value = HAL_ADC_GetValue(&hadc1);
-//	  HAL_UART_Transmit(&huart2, (void *)str, sprintf(str, "%d\n", ADC_value), 1000);
-//	  HAL_Delay(500);
-//	 if (timer1_flag == 1){
-//		 HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-//		 setTimer1(300);
-//	 }
 	 if(buffer_flag == 1){
-		 command_parser_fsm();
+		 command_parser_fsm(&hadc1, &huart2);
 		 buffer_flag = 0;
 	 }
-	 uart_communication_fsm();
+	 uart_communication_fsm(&hadc1, &huart2);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
