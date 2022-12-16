@@ -1,4 +1,4 @@
 ../Core/Src/fsm.c:26:5:isCmdEqualToRST	16	static
 ../Core/Src/fsm.c:33:5:isCmdEqualToOK	16	static
 ../Core/Src/fsm.c:39:6:command_parser_fsm	72	static
-../Core/Src/fsm.c:77:6:uart_communication_fsm	72	static
+../Core/Src/fsm.c:82:6:uart_communication_fsm	72	static

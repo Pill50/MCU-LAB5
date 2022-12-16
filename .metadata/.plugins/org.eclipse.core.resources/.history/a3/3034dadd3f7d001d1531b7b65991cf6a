@@ -48,11 +48,6 @@ void command_parser_fsm(ADC_HandleTypeDef* hadc1, UART_HandleTypeDef* huart2) {
 			if(buffer_byte != '!' && buffer_byte != '#') {
 				cmd_data[cmd_data_index] = buffer_byte;
 				cmd_data_index++;
-				// invalid input
-				if(cmd_data_index > 3) {
-					status = STOP;
-					cmd_data_index = 0;
-				}
 			}
 			// check if end with '#' or start with more '!'
 			if (buffer_byte == '#' || buffer_byte == '!') {
